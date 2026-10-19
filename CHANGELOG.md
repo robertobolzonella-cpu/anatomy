@@ -6,12 +6,15 @@ All notable changes to Anatomy are recorded here. The format follows [Keep a Cha
 
 ### Added
 
+- Valve parts and a worked example. `kit/valve.mjs` adds a smooth bulge body with an analytic profile, raised-face flanges with stud bolting, saddle bosses cut by a curved body, a gland and ISO 5211 plate, a quadrant, a lever rebuilt per frame and the bore seen on a flange face (`flangeDims` carries the ASME B16.5 Class 300 bolting for NPS 2–12 and throws for anything else). `examples/ball-valve/` is a 6″ Class 300 trunnion ball valve with a pure model (`model.mjs`) that states its limits: the thin-ball open area `sin(α)` is an upper bound and the torque an order of magnitude. `references/valve.md` and a SKILL.md section on valves and standards-bound equipment document them, and `scripts/valve.test.mjs` tests the model and the parts. The parts do not yet record shapes for `kit/audit.mjs`, so `--audit` does not cover a valve figure.
+
 - Printable sheets. `scripts/print.mjs` freezes poses of a built figure as vector stills (WebGL as a 2× PNG) and prints one A4 or US Letter PDF in three formats: `poster` (one page: big name, numbers, pinned figure and a line per part), `drawing` (one page: parts list, specification, inset and a strip of lit steps) and `detailed` (two pages: pinned figure with round close-ups, then large lit steps with text and the why). Parts are CSS selectors over the live SVG, so any figure can be printed; crowded pins spread apart with hairline leaders, and the script fails when a format runs past its pages. `examples/raptor-engine/sheet.mjs` and `examples/arcade-cabinet/sheet.mjs` are the references, `references/print.md` the guide.
 - Antigravity support, alongside Claude Code, OpenCode and Codex. Documented user and project installation paths in the README and CONTRIBUTING, updated SKILL.md compatibility, and added Antigravity to the bug report form.
 - MiniMax Code support. The README and CONTRIBUTING document its user (`~/.minimax/skills`) and project (`.minimax/skills`) folders and `npx skills add ... -a minimax-code`, SKILL.md lists it, and the bug report form offers it.
 
 ### Changed
 
+- The card text, readout, caption and `aria-label` of a figure follow the language the user writes in; code, identifiers and file names stay in English (SKILL.md, workflow step 8).
 - A Figure no longer quotes a time to the user. The 30–90 minute estimate was often far longer than the build itself ([#41](https://github.com/wheresryan22/anatomy/issues/41)).
 
 ### Fixed

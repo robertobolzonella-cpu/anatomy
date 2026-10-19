@@ -69,6 +69,11 @@ jobs:
           node examples/push-button/build.mjs
           node examples/push-button/build.mjs --light
 
+      - name: Ball valve
+        run: |
+          node examples/ball-valve/build.mjs
+          node examples/ball-valve/build.mjs --light
+
       - name: Committed pages are unchanged
         run: |
           git status --short
